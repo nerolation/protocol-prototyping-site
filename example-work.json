@@ -1,0 +1,20 @@
+[
+  {
+    "title": "EIP-4844 Blob Transaction Analysis",
+    "description": "Deep dive into blob transaction implementation and its impact on L2 scaling solutions",
+    "label": "DL",
+    "url": "https://github.com/example/eip4844-analysis"
+  },
+  {
+    "title": "Proposer-Builder Separation Research",
+    "description": "Exploring PBS mechanisms for improved MEV distribution and network decentralization",
+    "label": "MEV-Boost",
+    "url": "https://github.com/example/pbs-research"
+  },
+  {
+    "title": "Verkle Trees Implementation",
+    "description": "Prototype implementation of Verkle trees for stateless client support",
+    "label": "EL",
+    "url": "https://github.com/example/verkle-trees"
+  }
+]

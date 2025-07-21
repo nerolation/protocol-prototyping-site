@@ -1,0 +1,6 @@
+node_modules/
+dist/
+team-work-data.json
+.DS_Store
+*.log
+.env

@@ -1,0 +1,14 @@
+{
+  "name": "protocol-prototyping-site",
+  "version": "1.0.0",
+  "description": "Static website for Protocol Prototyping team at Ethereum Foundation",
+  "private": true,
+  "scripts": {
+    "fetch": "node scripts/fetch-team-work.js",
+    "build": "node scripts/build.js",
+    "fetch-and-build": "npm run fetch && npm run build"
+  },
+  "keywords": ["ethereum", "protocol", "prototyping"],
+  "author": "Protocol Prototyping Team",
+  "license": "MIT"
+}
