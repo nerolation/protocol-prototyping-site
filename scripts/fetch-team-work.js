@@ -99,9 +99,18 @@ async function fetchAllTeamWork(TEAM_MEMBERS) {
         }
     }
     
-    // Sort by most recent (assuming work items might have timestamps in the future)
-    // For now, just randomize to mix team members
-    allWork.sort(() => Math.random() - 0.5);
+    // Sort by date (newest first)
+    allWork.sort((a, b) => {
+        // If both have dates, sort by date
+        if (a.date && b.date) {
+            return new Date(b.date) - new Date(a.date);
+        }
+        // Items with dates come before items without dates
+        if (a.date && !b.date) return -1;
+        if (!a.date && b.date) return 1;
+        // If neither has a date, maintain original order
+        return 0;
+    });
     
     console.log(`\nTotal work items collected: ${allWork.length}`);
     return allWork;
