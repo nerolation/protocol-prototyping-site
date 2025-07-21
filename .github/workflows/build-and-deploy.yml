@@ -23,13 +23,17 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install and Build
+      - name: Install dependencies
+        run: npm install
+
+      - name: Fetch team work
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          npm install
-          npm run fetch || echo "Fetch failed, continuing with build"
-          npm run build
+        run: npm run fetch
+        continue-on-error: true
+
+      - name: Build site
+        run: npm run build
 
       - name: Deploy to gh-pages branch
         uses: peaceiris/actions-gh-pages@v3
