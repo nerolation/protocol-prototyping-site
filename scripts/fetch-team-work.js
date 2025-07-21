@@ -72,11 +72,11 @@ async function fetchAllTeamWork(TEAM_MEMBERS) {
     for (const member of TEAM_MEMBERS) {
         console.log(`Fetching work from ${member}...`);
         try {
-            // Parse username/repo/displayName format
+            // Parse username/repo/displayName/twitter format
             const parts = member.split('/');
             const username = parts[0];
             const repo = parts[1] || 'prototyping_work';
-            const displayName = parts.slice(2).join('/') || username; // Handle names with slashes
+            const displayName = parts[2] || username;
             
             const data = await fetchGitHubFile(username, repo, 'work.json');
             
