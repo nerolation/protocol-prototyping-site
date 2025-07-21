@@ -2,42 +2,45 @@
 
 A static website that aggregates and displays work from the Protocol Prototyping team at the Ethereum Foundation.
 
-## Setup
+## How to Join the Team
 
-1. **Join the team**: Submit a PR adding your entry to `TEAM_MEMBERS.txt` in format `username/repo-name`
+1. Fork this repository
+2. Edit `TEAM_MEMBERS.txt` and add your entry in the format: `username/repo-name`
+3. Submit a PR with your addition
 
-2. **Enable GitHub Pages**: 
-   - Go to Settings → Pages
-   - Set Source to "GitHub Actions"
+## Setting Up Your Work Repository
 
-3. **Repository structure for team members**: Each team member should have a repository with a `work.json` file containing an array of work items:
+Create a repository with a `work.json` file in the root containing an array of your work items:
 
 ```json
 [
   {
-    "title": "EIP-4844 Implementation Analysis",
-    "description": "Deep dive into blob transaction implementation and its impact on L2 scaling",
+    "title": "EIP-4844 Blob Transaction Analysis",
+    "description": "Deep dive into blob transaction implementation and its impact on L2 scaling solutions",
     "label": "DL",
     "url": "https://github.com/username/eip4844-analysis"
+  },
+  {
+    "title": "Proposer-Builder Separation Research",
+    "description": "Exploring PBS mechanisms for improved MEV distribution",
+    "label": "MEV-Boost",
+    "url": "https://github.com/username/pbs-research"
   }
 ]
 ```
 
-Valid labels: `CL` (Consensus Layer), `EL` (Execution Layer), `MEV-Boost`, `DL` (Data Layer)
+### Work Item Fields
 
-## Deployment
+- **title**: Name of your project or research
+- **description**: Brief description (1-2 sentences)
+- **label**: Category - must be one of: `CL`, `EL`, `MEV-Boost`, `DL`
+- **url**: Link to your project (GitHub repo, blog post, etc.)
 
-The site automatically:
-- Deploys daily at 00:00 UTC
-- Deploys on pushes to main
-- Can be manually triggered via GitHub Actions
+### Labels
 
-## Local Development
+- `CL`: Consensus Layer
+- `EL`: Execution Layer
+- `MEV-Boost`: MEV and block building
+- `DL`: Data Layer (blobs, DA, etc.)
 
-```bash
-# Team members are read from TEAM_MEMBERS.txt
-# Fetch data and build
-npm run fetch-and-build
-
-# View the built site in dist/
-```
+Your work will appear on the team website after your PR is merged!
