@@ -6,19 +6,32 @@ const DIST_DIR = path.join(__dirname, '..', 'dist');
 const SRC_FILES = ['index.html', 'styles.css', 'app.js'];
 
 async function generateWorkItemsHTML(workItems) {
-    return workItems.map(item => `
+    return workItems.map(item => {
+        // Format date as Month/Year
+        let dateDisplay = '';
+        if (item.date) {
+            const date = new Date(item.date);
+            const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            dateDisplay = `${months[date.getMonth()]}/${date.getFullYear()}`;
+        }
+        
+        return `
         <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="work-item" data-label="${item.label}">
             <div class="work-header">
                 <h3 class="work-title">${escapeHtml(item.title)}</h3>
                 <span class="work-label label-${item.label}">${item.label}</span>
             </div>
             <p class="work-description">${escapeHtml(item.description)}</p>
-            <div class="work-author">
-                <img src="${item.authorAvatar || `https://github.com/${item.author}.png?size=40`}" alt="${item.authorDisplay || item.author}" class="author-avatar">
-                <span>${escapeHtml(item.authorDisplay || item.author)}</span>
+            <div class="work-footer">
+                <div class="work-author">
+                    <img src="${item.authorAvatar || `https://github.com/${item.author}.png?size=40`}" alt="${item.authorDisplay || item.author}" class="author-avatar">
+                    <span>${escapeHtml(item.authorDisplay || item.author)}</span>
+                </div>
+                ${dateDisplay ? `<span class="work-date">${dateDisplay}</span>` : ''}
             </div>
         </a>
-    `).join('');
+    `;
+    }).join('');
 }
 
 function escapeHtml(text) {

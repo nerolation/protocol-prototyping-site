@@ -19,13 +19,15 @@ Create a repository with a `work.json` file in the root containing an array of y
     "title": "EIP-4844 Blob Transaction Analysis",
     "description": "Deep dive into blob transaction implementation and its impact on L2 scaling solutions",
     "label": "DL",
-    "url": "https://github.com/username/eip4844-analysis"
+    "url": "https://github.com/username/eip4844-analysis",
+    "date": "2024-01-15"
   },
   {
     "title": "Proposer-Builder Separation Research",
     "description": "Exploring PBS mechanisms for improved MEV distribution",
     "label": "MEV-Boost",
-    "url": "https://github.com/username/pbs-research"
+    "url": "https://github.com/username/pbs-research",
+    "date": "2023-12-20"
   }
 ]
 ```
@@ -36,6 +38,7 @@ Create a repository with a `work.json` file in the root containing an array of y
 - **description**: Brief description (1-2 sentences)
 - **label**: Category - must be one of: `CL`, `EL`, `MEV-Boost`, `DL`
 - **url**: Link to your project (GitHub repo, blog post, etc.)
+- **date**: Date of the work (format: YYYY-MM-DD)
 
 ### Labels
 

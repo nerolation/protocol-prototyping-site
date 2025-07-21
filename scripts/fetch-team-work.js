@@ -81,12 +81,14 @@ async function fetchAllTeamWork(TEAM_MEMBERS) {
             const data = await fetchGitHubFile(username, repo, 'work.json');
             
             if (data && Array.isArray(data)) {
-                const memberWork = data.map(item => ({
-                    ...item,
-                    author: username,
-                    authorDisplay: displayName,
-                    authorAvatar: `https://github.com/${username}.png?size=40`
-                }));
+                const memberWork = data
+                    .filter(item => item && item.title) // Filter out invalid items
+                    .map(item => ({
+                        ...item,
+                        author: username,
+                        authorDisplay: displayName,
+                        authorAvatar: `https://github.com/${username}.png?size=40`
+                    }));
                 allWork.push(...memberWork);
                 console.log(`  ✓ Found ${memberWork.length} items from ${username}/${repo}`);
             } else {
