@@ -97,7 +97,9 @@ main {
     cursor: pointer;
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    min-height: 200px;
 }
 
 .work-item:hover {
@@ -156,10 +158,11 @@ main {
     color: #94a3b8;
     font-size: 0.95rem;
     line-height: 1.5;
+    flex: 1;
 }
 
 .work-footer {
-    margin-top: 1rem;
+    margin-top: auto;
     padding-top: 1rem;
     border-top: 1px solid var(--border-color);
     display: flex;
