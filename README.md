@@ -4,13 +4,13 @@ A static website that aggregates and displays work from the Protocol Prototyping
 
 ## Setup
 
-1. **Join the team**: Submit a PR adding your GitHub username to `TEAM_MEMBERS.txt`
+1. **Join the team**: Submit a PR adding your entry to `TEAM_MEMBERS.txt` in format `username/repo-name`
 
 2. **Enable GitHub Pages**: 
    - Go to Settings → Pages
    - Set Source to "GitHub Actions"
 
-3. **Repository structure for team members**: Each team member should have a repository named `prototyping_work` with a `work.json` file containing an array of work items:
+3. **Repository structure for team members**: Each team member should have a repository with a `work.json` file containing an array of work items:
 
 ```json
 [
