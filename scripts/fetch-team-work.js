@@ -72,17 +72,20 @@ async function fetchAllTeamWork(TEAM_MEMBERS) {
     for (const member of TEAM_MEMBERS) {
         console.log(`Fetching work from ${member}...`);
         try {
-            // Parse username/repo format
-            const [username, repo] = member.includes('/') 
-                ? member.split('/')
-                : [member, 'prototyping_work']; // Default repo name for backward compatibility
+            // Parse username/repo/displayName format
+            const parts = member.split('/');
+            const username = parts[0];
+            const repo = parts[1] || 'prototyping_work';
+            const displayName = parts.slice(2).join('/') || username; // Handle names with slashes
             
             const data = await fetchGitHubFile(username, repo, 'work.json');
             
             if (data && Array.isArray(data)) {
                 const memberWork = data.map(item => ({
                     ...item,
-                    author: username
+                    author: username,
+                    authorDisplay: displayName,
+                    authorAvatar: `https://github.com/${username}.png?size=40`
                 }));
                 allWork.push(...memberWork);
                 console.log(`  ✓ Found ${memberWork.length} items from ${username}/${repo}`);

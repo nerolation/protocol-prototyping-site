@@ -5,7 +5,8 @@ A static website that aggregates and displays work from the Protocol Prototyping
 ## How to Join the Team
 
 1. Fork this repository
-2. Edit `TEAM_MEMBERS.txt` and add your entry in the format: `username/repo-name`
+2. Edit `TEAM_MEMBERS.txt` and add your entry in the format: `username/repo-name/Display Name`
+   - Example: `alice/protocol-research/Alice Smith`
 3. Submit a PR with your addition
 
 ## Setting Up Your Work Repository

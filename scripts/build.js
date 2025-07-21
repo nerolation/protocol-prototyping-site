@@ -13,7 +13,10 @@ async function generateWorkItemsHTML(workItems) {
                 <span class="work-label label-${item.label}">${item.label}</span>
             </div>
             <p class="work-description">${escapeHtml(item.description)}</p>
-            <div class="work-author">by ${item.author}</div>
+            <div class="work-author">
+                <img src="${item.authorAvatar || `https://github.com/${item.author}.png?size=40`}" alt="${item.authorDisplay || item.author}" class="author-avatar">
+                <span>${escapeHtml(item.authorDisplay || item.author)}</span>
+            </div>
         </a>
     `).join('');
 }

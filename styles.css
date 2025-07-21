@@ -171,6 +171,17 @@ main {
     border-top: 1px solid var(--border-color);
     font-size: 0.9rem;
     color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.author-avatar {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--border-color);
 }
 
 footer {
