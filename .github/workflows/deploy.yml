@@ -36,7 +36,6 @@ jobs:
       - name: Fetch team work
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TEAM_MEMBERS: ${{ vars.TEAM_MEMBERS }}
         run: npm run fetch
 
       - name: Build site

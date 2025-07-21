@@ -4,7 +4,7 @@ A static website that aggregates and displays work from the Protocol Prototyping
 
 ## Setup
 
-1. **Configure team members**: Set the `TEAM_MEMBERS` repository variable in GitHub settings with a comma-separated list of GitHub usernames.
+1. **Join the team**: Submit a PR adding your GitHub username to `TEAM_MEMBERS.txt`
 
 2. **Enable GitHub Pages**: 
    - Go to Settings → Pages
@@ -35,9 +35,7 @@ The site automatically:
 ## Local Development
 
 ```bash
-# Set team members
-export TEAM_MEMBERS="alice,bob,charlie"
-
+# Team members are read from TEAM_MEMBERS.txt
 # Fetch data and build
 npm run fetch-and-build
 

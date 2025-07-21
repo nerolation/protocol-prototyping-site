@@ -3,7 +3,25 @@ const fs = require('fs').promises;
 const path = require('path');
 
 // Configuration
-const TEAM_MEMBERS = process.env.TEAM_MEMBERS ? process.env.TEAM_MEMBERS.split(',') : [];
+async function getTeamMembers() {
+    // Try to read from TEAM_MEMBERS.txt first
+    try {
+        const teamFile = path.join(__dirname, '..', 'TEAM_MEMBERS.txt');
+        const content = await fs.readFile(teamFile, 'utf-8');
+        const members = content
+            .split('\n')
+            .filter(line => line.trim() && !line.startsWith('#'))
+            .map(line => line.trim());
+        
+        if (members.length > 0) {
+            return members;
+        }
+    } catch (error) {
+        // Fall back to environment variable
+    }
+    
+    return process.env.TEAM_MEMBERS ? process.env.TEAM_MEMBERS.split(',') : [];
+}
 const OUTPUT_FILE = path.join(__dirname, '..', 'team-work-data.json');
 
 async function fetchGitHubFile(username, repo, filepath) {
@@ -47,7 +65,7 @@ async function fetchGitHubFile(username, repo, filepath) {
     });
 }
 
-async function fetchAllTeamWork() {
+async function fetchAllTeamWork(TEAM_MEMBERS) {
     console.log('Fetching team work from GitHub...');
     const allWork = [];
     
@@ -81,14 +99,16 @@ async function fetchAllTeamWork() {
 
 async function main() {
     try {
+        const TEAM_MEMBERS = await getTeamMembers();
+        
         if (TEAM_MEMBERS.length === 0) {
-            console.error('No team members specified. Set TEAM_MEMBERS environment variable.');
+            console.error('No team members found. Add members to TEAM_MEMBERS.txt or set TEAM_MEMBERS environment variable.');
             process.exit(1);
         }
         
         console.log(`Team members: ${TEAM_MEMBERS.join(', ')}\n`);
         
-        const teamWork = await fetchAllTeamWork();
+        const teamWork = await fetchAllTeamWork(TEAM_MEMBERS);
         
         // Save to file
         await fs.writeFile(OUTPUT_FILE, JSON.stringify(teamWork, null, 2));
