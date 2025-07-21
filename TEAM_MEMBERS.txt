@@ -1,6 +1,6 @@
 # Protocol Prototyping Team Members
 # Add your entry below with GitHub username, repo, and display name
-# Format: username/repo-name/Display Name
+# Format: username/repo-name/display name/twitter handle
 # Submit a PR to add yourself to the team
 
-nerolation/pglanding-nerolation/Toni Wahrstätter
+nerolation/pglanding-nerolation/Toni Wahrstätter/nero_eth
