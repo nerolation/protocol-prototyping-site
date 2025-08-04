@@ -22,18 +22,81 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Ethereum logo background decorations */
+.eth-bg-logo {
+    position: fixed;
+    background-image: url('eth-logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0.02;
+}
+
+.eth-bg-logo:nth-child(1) {
+    width: 200px;
+    height: 325px;
+    top: 10%;
+    left: 5%;
+    transform: rotate(-25deg);
+    opacity: 0.015;
+}
+
+.eth-bg-logo:nth-child(2) {
+    width: 150px;
+    height: 244px;
+    top: 50%;
+    right: 8%;
+    transform: rotate(15deg);
+    opacity: 0.02;
+}
+
+.eth-bg-logo:nth-child(3) {
+    width: 180px;
+    height: 292px;
+    bottom: 20%;
+    left: 15%;
+    transform: rotate(30deg);
+    opacity: 0.018;
+}
+
+.eth-bg-logo:nth-child(4) {
+    width: 120px;
+    height: 195px;
+    top: 30%;
+    right: 25%;
+    transform: rotate(-10deg);
+    opacity: 0.015;
+}
+
+.eth-bg-logo:nth-child(5) {
+    width: 160px;
+    height: 260px;
+    bottom: 10%;
+    right: 20%;
+    transform: rotate(45deg);
+    opacity: 0.02;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
+    z-index: 1;
 }
 
 header {
     background-color: var(--secondary-color);
     border-bottom: 1px solid var(--border-color);
     padding: 2rem 0;
+    position: relative;
+    z-index: 2;
 }
 
 header h1 {
@@ -49,7 +112,7 @@ header h1 {
 }
 
 main {
-    padding: 3rem 0;
+    padding: 2rem 0 3rem;
 }
 
 .filters {
@@ -57,7 +120,10 @@ main {
     gap: 1rem;
     justify-content: center;
     margin-bottom: 3rem;
+    margin-top: 1rem;
     flex-wrap: wrap;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border-color);
 }
 
 .filter-btn {
@@ -100,6 +166,8 @@ main {
     display: flex;
     flex-direction: column;
     min-height: 200px;
+    position: relative;
+    backdrop-filter: blur(10px);
 }
 
 .work-item:hover {
@@ -223,14 +291,17 @@ main {
 
 /* Team Members Section */
 .team-members {
-    margin-top: 5rem;
+    margin-top: 0;
+    margin-bottom: 3rem;
 }
 
 .section-title {
-    font-size: 2rem;
-    font-weight: 300;
+    font-size: 1.75rem;
+    font-weight: 400;
     margin-bottom: 2rem;
     text-align: center;
+    color: var(--text-color);
+    letter-spacing: -0.5px;
 }
 
 .team-members-grid {
@@ -238,6 +309,7 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 .team-member {
@@ -247,6 +319,8 @@ main {
     padding: 2rem;
     text-align: center;
     transition: all 0.2s ease;
+    position: relative;
+    backdrop-filter: blur(10px);
 }
 
 .team-member:hover {
