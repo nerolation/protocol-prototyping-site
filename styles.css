@@ -552,13 +552,26 @@ body:not([data-theme]) .sun-icon {
     color: var(--text-primary);
 }
 
-.work-label {
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
+.work-label-container {
     font-size: 0.75rem;
     font-weight: 600;
     white-space: nowrap;
     text-transform: uppercase;
+}
+
+.work-label {
+    padding: 0.5rem;
+}
+
+.work-label:first-child {
+    padding-left: 0.75rem;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+.work-label:last-child {
+    padding-right: 0.75rem;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
 }
 
 .label-CL {

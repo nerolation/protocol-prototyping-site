@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 label.includes(searchQuery);
 
             // Check category filter match
-            const matchesCategoryFilter = currentCategoryFilter === 'all' || item.getAttribute('data-label') === currentCategoryFilter;
+            const matchesCategoryFilter = currentCategoryFilter === 'all' || item.getAttribute('data-label')?.split(',').includes(currentCategoryFilter);
 
             // Check author filter match
             const matchesAuthorFilter = currentAuthorFilter === 'all' || authorId === currentAuthorFilter;
