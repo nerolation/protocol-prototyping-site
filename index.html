@@ -4,140 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Protocol Prototyping - Ethereum Foundation</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta http-equiv="refresh" content="0; url=https://blog.ethereum.org/2026/06/23/ef-structure">
+    <link rel="canonical" href="https://blog.ethereum.org/2026/06/23/ef-structure">
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #ffffff;
+            --fg: #1a1a1a;
+            --muted: #6b7280;
+            --accent: #3c3c3d;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0f0f10;
+                --fg: #f3f4f6;
+                --muted: #9ca3af;
+                --accent: #d1d5db;
+            }
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        main { max-width: 34rem; }
+
+        svg {
+            width: 44px;
+            height: auto;
+            margin-bottom: 1.5rem;
+            opacity: 0.85;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 0 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            margin: 0 0 1.5rem;
+            color: var(--muted);
+        }
+
+        a {
+            color: var(--fg);
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        a:hover { color: var(--accent); }
+    </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <h1>Protocol Prototyping</h1>
-                <nav class="main-nav">
-                    <a href="#projects" class="nav-link">Projects</a>
-                    <a href="#team" class="nav-link">Team</a>
-                </nav>
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
-                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                </button>
-                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </div>
-        </div>
-    </header>
-
     <main>
-        <div class="container">
-            <!-- Hero Section -->
-            <section class="hero" id="hero">
-                <div class="hero-content animate-on-scroll">
-                    <p class="hero-description">
-                        The <span class="highlight-text">Protocol Prototyping</span> team at the Ethereum Foundation builds end-to-end implementations of new ideas for Ethereum's core protocol. By turning concepts into working prototypes, we explore how potential upgrades behave in practice, helping the community move beyond theory and speculation.
-                    </p>
-                </div>
-            </section>
-
-            <!-- Projects Section -->
-            <section class="section" id="projects">
-                <h2 class="section-title animate-on-scroll">Projects</h2>
-
-                <!-- Search and Controls -->
-                <div class="projects-controls animate-on-scroll">
-                    <div class="search-container">
-                        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="11" cy="11" r="8"></circle>
-                            <path d="M21 21l-4.35-4.35"></path>
-                        </svg>
-                        <input type="text" id="project-search" class="search-input" placeholder="Search projects...">
-                        <button class="search-clear" id="search-clear" aria-label="Clear search">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M18 6L6 18M6 6l12 12"></path>
-                            </svg>
-                        </button>
-                    </div>
-
-                    <div class="controls-row">
-                        <div class="filter-container">
-                            <label class="filter-label">Author</label>
-                            <select id="author-select" class="author-select">
-                                <option value="all">All members</option>
-                                <!-- Team member options will be dynamically inserted here -->
-                            </select>
-                        </div>
-
-                        <div class="sort-container">
-                            <label class="sort-label">Sort by</label>
-                            <select id="sort-select" class="sort-select">
-                                <option value="date-desc">Newest first</option>
-                                <option value="date-asc">Oldest first</option>
-                                <option value="alpha-asc">A - Z</option>
-                                <option value="alpha-desc">Z - A</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="filters animate-on-scroll">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="CL">Consensus Layer</button>
-                    <button class="filter-btn" data-filter="EL">Execution Layer</button>
-                    <button class="filter-btn" data-filter="MEV-Boost">MEV-Boost</button>
-                    <button class="filter-btn" data-filter="DL">Data Layer</button>
-                </div>
-
-                <!-- No results message -->
-                <div class="no-results" id="no-results">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <circle cx="11" cy="11" r="8"></circle>
-                        <path d="M21 21l-4.35-4.35"></path>
-                    </svg>
-                    <p>No projects found matching your search.</p>
-                </div>
-
-                <div class="team-work" id="team-work">
-                    <!-- Work items will be dynamically inserted here -->
-                </div>
-            </section>
-
-
-            <!-- Team Section -->
-            <section class="section" id="team">
-                <h2 class="section-title animate-on-scroll">Team</h2>
-                <div class="team-members-grid" id="team-members-grid">
-                    <!-- Team members will be dynamically inserted here -->
-                </div>
-                <div class="team-description animate-on-scroll">
-                    <h3>Join the Protocol Prototyping Team</h3>
-                    <p>Are you interested in joining Protocol Prototyping? We're always looking for talented engineers and researchers passionate about building the future of Ethereum. Even when we're not actively hiring, we'd love to hear from exceptional candidates.</p>
-                    <p>Get in touch: <a href="mailto:prototyping@ethereum.org" class="email-link">prototyping@ethereum.org</a></p>
-                </div>
-            </section>
-        </div>
+        <svg viewBox="0 0 256 417" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" aria-hidden="true">
+            <path fill="currentColor" fill-opacity="0.6" d="M127.961 0l-2.795 9.5v275.668l2.795 2.79 127.962-75.638z"/>
+            <path fill="currentColor" fill-opacity="0.35" d="M127.962 0L0 212.32l127.962 75.639V154.158z"/>
+            <path fill="currentColor" fill-opacity="0.6" d="M127.961 312.187l-1.575 1.92v98.199l1.575 4.6L256 236.587z"/>
+            <path fill="currentColor" fill-opacity="0.35" d="M127.962 416.905v-104.72L0 236.585z"/>
+            <path fill="currentColor" fill-opacity="0.9" d="M127.961 287.958l127.96-75.637-127.96-58.162z"/>
+            <path fill="currentColor" fill-opacity="0.7" d="M0 212.32l127.96 75.638v-133.8z"/>
+        </svg>
+        <h1>Protocol Prototyping has wrapped up</h1>
+        <p>
+            This site is no longer maintained. You are being redirected to the
+            Ethereum Foundation blog post on the EF structure.
+        </p>
+        <p>
+            <a href="https://blog.ethereum.org/2026/06/23/ef-structure">Continue to blog.ethereum.org</a>
+        </p>
     </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <p>© 2024 Ethereum Foundation</p>
-                <p>Last updated: <span id="last-updated"></span></p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="app.js"></script>
+    <script>
+        window.location.replace('https://blog.ethereum.org/2026/06/23/ef-structure');
+    </script>
 </body>
 </html>

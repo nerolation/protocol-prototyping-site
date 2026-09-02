@@ -1,57 +1,17 @@
-# Protocol Prototyping Team Website
+# Protocol Prototyping Team Website (archived)
 
-A static website that aggregates and displays work from the Protocol Prototyping team at the Ethereum Foundation.
+The Protocol Prototyping team at the Ethereum Foundation no longer exists, and this
+site is no longer maintained.
 
-## How to Join the Team
+`prototyping.ethereum.foundation` now serves a single page that redirects to
+<https://blog.ethereum.org/2026/06/23/ef-structure>.
 
-1. Fork this repository
-2. Edit `TEAM_MEMBERS.txt` and add your entry in the format: `username/repo-name/Display Name`
-   - Example: `alice/protocol-research/Alice Smith/alice_twitter`
-3. Submit a PR with your addition
+The previous version of the site — the work aggregator, team listing, and the
+`TEAM_MEMBERS.txt` / `work.json` tooling — remains available in this repository's
+git history (see the commits before this one).
 
-## Setting Up Your Work Repository
+## Deployment
 
-Create a repository with a `work.json` file in the root containing an array of your work items:
-
-```json
-[
-  {
-    "title": "Payload Chunking",
-    "description": "Deep dive analysis of Payload Chunking designs",
-    "label": "CL,EL,DL",
-    "url": "https://ethereum-magicians.org/t/payload-chunking/28067",
-    "date": "2026-03-24"
-  },
-  {
-    "title": "EIP-4844 Blob Transaction Analysis",
-    "description": "Deep dive into blob transaction implementation and its impact on L2 scaling solutions",
-    "label": "DL",
-    "url": "https://github.com/username/eip4844-analysis",
-    "date": "2024-01-15"
-  },
-  {
-    "title": "Proposer-Builder Separation Research",
-    "description": "Exploring PBS mechanisms for improved MEV distribution",
-    "label": "MEV-Boost",
-    "url": "https://github.com/username/pbs-research",
-    "date": "2023-12-20"
-  }
-]
-```
-
-### Work Item Fields
-
-- **title**: Name of your project or research
-- **description**: Brief description (1-2 sentences)
-- **label**: Category - must be comma separated list of: `CL`, `EL`, `MEV-Boost`, `DL`
-- **url**: Link to your project (GitHub repo, blog post, etc.)
-- **date**: Date of the work (format: YYYY-MM-DD)
-
-### Labels
-
-- `CL`: Consensus Layer
-- `EL`: Execution Layer
-- `MEV-Boost`: MEV and block building
-- `DL`: Data Layer (blobs, DA, etc.)
-
-Your work will appear on the team website after your PR is merged!
+`npm run build` copies `index.html` into `dist/` along with `.nojekyll` and the
+`CNAME` file. The `Build and Deploy` GitHub Actions workflow runs on every push to
+`main` and publishes `dist/` to the `gh-pages` branch.
